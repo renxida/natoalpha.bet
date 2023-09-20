@@ -73,10 +73,16 @@
 	</style>
 </head>
 <body>
+
+
 	<h1>NATO Alphabet Reminder</h1>
 	<p>
 		Here's a quick reminder of the NATO phonetic alphabet, which is used to spell out words or letters over the phone or radio:
 	</p>
+	<div style="margin: 0 auto; max-width: 600px; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px;">
+        <input type="text" id="nameInput" style="width: 100%; padding: 10px; font-size: 16px; margin-bottom: 20px;" placeholder="Type a name..." />
+        <p id="natoSpelling" style="font-size: 18px; color: #333;"></p>
+    </div>
 	<ul>
 		<li><span>A</span>lpha</li>
 		<li><span>B</span>ravo</li>
@@ -106,4 +112,45 @@
 		<li><span>Z</span>ulu</li>
 	</ul>
 </body>
+
+
+<script>
+    const natoAlphabet = {
+        a: 'Alpha',
+        b: 'Bravo',
+        c: 'Charlie',
+        d: 'Delta',
+        e: 'Echo',
+        f: 'Foxtrot',
+        g: 'Golf',
+        h: 'Hotel',
+        i: 'India',
+        j: 'Juliet',
+        k: 'Kilo',
+        l: 'Lima',
+        m: 'Mike',
+        n: 'November',
+        o: 'Oscar',
+        p: 'Papa',
+        q: 'Quebec',
+        r: 'Romeo',
+        s: 'Sierra',
+        t: 'Tango',
+        u: 'Uniform',
+        v: 'Victor',
+        w: 'Whiskey',
+        x: 'X-ray',
+        y: 'Yankee',
+        z: 'Zulu',
+    };
+    
+    const nameInput = document.getElementById('nameInput');
+    const natoSpelling = document.getElementById('natoSpelling');
+    
+    nameInput.addEventListener('input', () => {
+        const name = nameInput.value.toLowerCase();
+        const natoName = name.split('').map(letter => natoAlphabet[letter] || letter).join(' ');
+        natoSpelling.textContent = natoName;
+    });
+</script>
 </html>
